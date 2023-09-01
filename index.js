@@ -7,7 +7,7 @@ class ProductManager {
         this.#productIdCounter = 1;
     }
 
-    addProduct (title, description, price, thumbnail, code, stock) {
+    addProduct(title, description, price, thumbnail, code, stock) {
         if (!title || !description || !price || !thumbnail || !code || !stock) {
             console.error("Todos los campos son obligatorios.");
             return;
@@ -28,6 +28,7 @@ class ProductManager {
         };
 
         this.#products.push(product);
+        console.log("Producto agregado correctamente:", product);
     }
 
     getProducts() {
@@ -35,18 +36,17 @@ class ProductManager {
     }
 
     getProductById(id) {
-        const product = this.#products.find((product) => product.id === id );
+        const product = this.#products.find((product) => product.id === id);
 
         if (!product) {
-            console.error("Producto no encontrado.");
+            console.error("Not found.");
         }
 
         return product;
     }
-};
+}
 
-
-//Ejemplo de uso:
+// Ejemplo de uso:
 const productManager = new ProductManager();
 
 productManager.addProduct("Producto prueba 1", "Descripcion 1", 10, "img1.jpg", "abc123", 50);
